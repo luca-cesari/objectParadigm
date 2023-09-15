@@ -10,9 +10,6 @@ class Persona {
 	
 	method pasarDia(){
 		enfermedades.forEach{enfermedad => enfermedad.hacerEfectoA(self)}
-		if(temperatura > 45){
-			console.println("Se encuentra en coma")
-		}
 	}
 	
 	method aumentarTemperatura(aumento){
@@ -23,4 +20,15 @@ class Persona {
 		self.celulasSanas(celulasSanas-celulasAmenazadas)
 	}
 	
+	method estaEnComa(){
+		return temperatura > 45
+	}
+	
+	method enfermedadMasAmenazante(){
+		return enfermedades.max{enfermedad => enfermedad.cantCelulasAmenazadas()}
+	}
+	
+	method recibirDosis(dosis){
+		enfermedades.forEach{enfermedad => enfermedad.atenuarCelulasAmenazadas(dosis)}
+	}
 }

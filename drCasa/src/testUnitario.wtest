@@ -4,12 +4,13 @@ import enfermedadAutoinmune.*
 
 test "personaConEnfermedades" {
 
-	const pedro = new Persona(celulasSanas = 100000)
+	const pedro = new Persona(celulasSanas = 100000, temperatura=36 )
 	const malaria = new EnfermedadInfecciosa(cantCelulasAmenazadas = 10000)
-	
+	const  viruela = new EnfermedadInfecciosa(cantCelulasAmenazadas = 20000)
 	
 	pedro.contraerEnfermedad(malaria)
 	pedro.pasarDia()
 	assert.equals(46, pedro.temperatura())
+	assert.equals(viruela, pedro.enfermedadMasAmenazante())
 
 }
