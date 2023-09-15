@@ -1,0 +1,15 @@
+import persona.*
+import enfermedadInfecciosa.*
+import enfermedadAutoinmune.*
+
+test "personaConEnfermedades" {
+
+	const pedro = new Persona(celulasSanas = 100000)
+	const malaria = new EnfermedadInfecciosa(cantCelulasAmenazadas = 10000)
+	
+	
+	pedro.contraerEnfermedad(malaria)
+	pedro.pasarDia()
+	assert.equals(46, pedro.temperatura())
+
+}
